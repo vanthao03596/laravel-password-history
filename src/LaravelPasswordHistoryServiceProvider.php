@@ -19,7 +19,7 @@ class LaravelPasswordHistoryServiceProvider extends PackageServiceProvider
             ->name('laravel-password-history')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel_password_history_table')
+            ->hasMigration('create_laravel_password_histories_table')
             ->hasCommand(LaravelPasswordHistoryCommand::class);
     }
 }
