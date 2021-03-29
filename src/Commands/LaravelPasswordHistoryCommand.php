@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Vanthao03596\LaravelPasswordHistory\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelPasswordHistoryCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-password-history';
 
     public $description = 'My command';
 

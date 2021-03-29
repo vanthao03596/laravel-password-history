@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Vanthao03596\LaravelPasswordHistory\Tests;
 
 class ExampleTest extends TestCase
 {

@@ -1,23 +1,23 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "vanthao03596/laravel-password-history",
+    "description": "Keep a password history of your users to prevent them from reusing the same password like Facebook, Google",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "vanthao03596",
+        "laravel-password-history"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/vanthao03596/laravel-password-history",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "phamthao",
+            "email": "phamthao03596@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^7.2.5|^8.0",
         "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.0"
+        "illuminate/contracts": "^7.0|^8.0"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
@@ -29,13 +29,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Vanthao03596\\LaravelPasswordHistory\\": "src",
+            "Vanthao03596\\LaravelPasswordHistory\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Vanthao03596\\LaravelPasswordHistory\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Vanthao03596\\LaravelPasswordHistory\\LaravelPasswordHistoryServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "LaravelPasswordHistory": "Vanthao03596\\LaravelPasswordHistory\\LaravelPasswordHistoryFacade"
             }
         }
     },

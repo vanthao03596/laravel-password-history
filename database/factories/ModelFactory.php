@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Database\Factories;
+namespace Vanthao03596\LaravelPasswordHistory\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
