@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 
 class NotInPasswordHistory implements Rule
 {
-
     protected $user;
 
     protected $month_to_check;
