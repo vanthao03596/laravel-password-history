@@ -9,7 +9,7 @@ class PasswordHistoryTest extends TestCase
     /** @test */
     public function history_is_stored_when_creating_new_model()
     {
-        $model = TestModel::factory()->create();
+        $model = factory(TestModel::class)->create();
 
         $this->assertEquals(1, $model->passwordHistories()->count());
     }
@@ -17,7 +17,7 @@ class PasswordHistoryTest extends TestCase
     /** @test */
     public function history_is_being_recorded_when_changing_password()
     {
-        $model = TestModel::factory()->create();
+        $model = factory(TestModel::class)->create();
 
         $model->password = 'new password';
 
@@ -35,7 +35,7 @@ class PasswordHistoryTest extends TestCase
     /** @test */
     public function history_is_not_being_recorded_when_password_is_not_changed()
     {
-        $model = TestModel::factory()->create();
+        $model = factory(TestModel::class)->create();
 
         $model->name = 'new name';
 
@@ -49,7 +49,7 @@ class PasswordHistoryTest extends TestCase
     {
         $password = '111111';
 
-        $model = TestModel::factory()->create(['password' => $password]);
+        $model = factory(TestModel::class)->create(['password' => $password]);
 
         $model->password = $password;
 

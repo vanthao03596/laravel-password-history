@@ -34,7 +34,7 @@ class ValidationRuleTest extends TestCase
     /** @test */
     public function validation_passes_when_password_used_before_greater_than_month_to_check()
     {
-        $model = TestModel::factory()->create();
+        $model = factory(TestModel::class)->create();
 
         $rule = new NotInPasswordHistory($model);
 

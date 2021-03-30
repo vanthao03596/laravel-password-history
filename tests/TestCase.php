@@ -19,11 +19,7 @@ abstract class TestCase extends Orchestra
 
         $this->setUpDatabase($this->app);
 
-        Factory::guessFactoryNamesUsing(
-            function (string $modelName) {
-                return 'Vanthao03596\\LaravelPasswordHistory\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
-            }
-        );
+        $this->withFactories(__DIR__.'/factories');
 
         $this->testModel = TestModel::first();
     }
