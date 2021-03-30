@@ -16,9 +16,9 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->withFactories(__DIR__.'/../database/factories');
-
         $this->setUpDatabase($this->app);
+
+        $this->withFactories(__DIR__.'/../database/factories');
 
         $this->testModel = TestModel::first();
     }
