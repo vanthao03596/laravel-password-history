@@ -38,7 +38,6 @@ abstract class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
-
     }
 
     /**
