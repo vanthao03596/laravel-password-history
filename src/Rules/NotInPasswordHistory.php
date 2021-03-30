@@ -20,7 +20,7 @@ class NotInPasswordHistory implements Rule
     public function passes($attribute, $value)
     {
         $passwordHistories = $this->user->passwordHistories()
-            ->where('changed_at', '>=' ,now()->subMonths($this->month_to_check))
+            ->where('changed_at', '>=', now()->subMonths($this->month_to_check))
             ->get();
 
         foreach ($passwordHistories as $passwordHistory) {

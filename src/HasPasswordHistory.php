@@ -11,7 +11,7 @@ trait HasPasswordHistory
     public static function bootHasPasswordHistory()
     {
         static::updated(function (Model $model) {
-            if (!$password = Arr::get($model->getChanges(), 'password')) {
+            if (! $password = Arr::get($model->getChanges(), 'password')) {
                 return;
             }
 
@@ -32,7 +32,7 @@ trait HasPasswordHistory
     {
         $this->passwordHistories()->create([
             'changed_at' => now(),
-            'password' => $password
+            'password' => $password,
         ]);
     }
 }
