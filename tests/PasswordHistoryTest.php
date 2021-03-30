@@ -57,5 +57,4 @@ class PasswordHistoryTest extends TestCase
 
         $this->assertEquals(1, $model->passwordHistories()->count());
     }
-
 }
