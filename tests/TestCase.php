@@ -2,19 +2,25 @@
 
 namespace Vanthao03596\LaravelPasswordHistory\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Vanthao03596\LaravelPasswordHistory\LaravelPasswordHistoryServiceProvider;
+use Vanthao03596\LaravelPasswordHistory\Tests\TestSupport\TestModels\TestModel;
 
-class TestCase extends Orchestra
+abstract class TestCase extends Orchestra
 {
+    protected $testModel;
+
     public function setUp(): void
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Vanthao03596\\LaravelPasswordHistory\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        $this->withFactories(__DIR__.'/../database/factories');
+
+        $this->setUpDatabase($this->app);
+
+        $this->testModel = TestModel::first();
     }
 
     protected function getPackageProviders($app)
@@ -33,9 +39,22 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-        /*
-        include_once __DIR__.'/../database/migrations/create_laravel_password_history_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+    }
+
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     */
+    protected function setUpDatabase($app)
+    {
+        include_once __DIR__.'/../database/migrations/create_laravel_password_histories_table.php.stub';
+        (new \CreateLaravelPasswordHistoriesTable())->up();
+
+        $app['db']->connection()->getSchemaBuilder()->create('test_models', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('password');
+        });
+
+        TestModel::create(['name' => 'test', 'password' => Hash::make('password')]);
     }
 }
