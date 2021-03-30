@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Vanthao03596\LaravelPasswordHistory\LaravelPasswordHistoryServiceProvider;
 use Vanthao03596\LaravelPasswordHistory\Tests\TestSupport\TestModels\TestModel;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 abstract class TestCase extends Orchestra
 {
@@ -18,7 +19,11 @@ abstract class TestCase extends Orchestra
 
         $this->setUpDatabase($this->app);
 
-        $this->withFactories(__DIR__.'/../database/factories');
+        Factory::guessFactoryNamesUsing(
+            function (string $modelName) {
+                return 'Vanthao03596\\LaravelPasswordHistory\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
+            }
+        );
 
         $this->testModel = TestModel::first();
     }
