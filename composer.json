@@ -51,10 +51,7 @@
         "laravel": {
             "providers": [
                 "Vanthao03596\\LaravelPasswordHistory\\LaravelPasswordHistoryServiceProvider"
-            ],
-            "aliases": {
-                "LaravelPasswordHistory": "Vanthao03596\\LaravelPasswordHistory\\LaravelPasswordHistoryFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

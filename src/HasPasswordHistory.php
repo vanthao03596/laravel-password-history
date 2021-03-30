@@ -10,20 +10,29 @@ trait HasPasswordHistory
 {
     public static function bootHasPasswordHistory()
     {
-        static::saved(function (Model $model) {
-            if (! $password = Arr::get($model->getChanges(), 'password')) {
+        static::updated(function (Model $model) {
+            if (!$password = Arr::get($model->getChanges(), 'password')) {
                 return;
             }
 
-            $model->passwordHistories()->create([
-                'changed_at' => now(),
-                'password' => $password,
-            ]);
+            $model->recordHistoryPassword($password);
+        });
+
+        static::created(function (Model $model) {
+            $model->recordHistoryPassword($model->password);
         });
     }
 
     public function passwordHistories(): MorphMany
     {
         return $this->morphMany(config('password-history.password_history_model'), 'model');
+    }
+
+    protected function recordHistoryPassword($password): void
+    {
+        $this->passwordHistories()->create([
+            'changed_at' => now(),
+            'password' => $password
+        ]);
     }
 }
