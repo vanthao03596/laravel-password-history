@@ -2,12 +2,12 @@
 
 namespace Vanthao03596\LaravelPasswordHistory\Tests;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Vanthao03596\LaravelPasswordHistory\LaravelPasswordHistoryServiceProvider;
 use Vanthao03596\LaravelPasswordHistory\Tests\TestSupport\TestModels\TestModel;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 abstract class TestCase extends Orchestra
 {
