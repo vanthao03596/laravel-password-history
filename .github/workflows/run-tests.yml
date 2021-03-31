@@ -10,13 +10,15 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         php: [ 8.0, 7.4, 7.3 ]
-        laravel: [ 8.*, 7.* ]
+        laravel: [8.*, 6.*, 7.*]
         stability: [prefer-lowest, prefer-stable]
         include:
-          - laravel: 8.*
-            testbench: 6.*
-          - laravel: 7.*
-            testbench: ^5.2
+          -   laravel: 8.*
+              testbench: 6.*
+          -   laravel: 7.*
+              testbench: 5.*
+          -   laravel: 6.*
+              testbench: 4.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
@@ -36,14 +38,7 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-      - name: Install dependencies laravel 7
-        if: matrix.laravel == '7.*'
-        run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "laravel/legacy-factories:^1.0.4" --no-interaction --no-update
-          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
-
-      - name: Install dependencies laravel 8
-        if: matrix.laravel == '8.*'
+      - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
