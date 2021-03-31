@@ -2,8 +2,6 @@
 
 namespace Vanthao03596\LaravelPasswordHistory;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Vanthao03596\LaravelPasswordHistory\Commands\LaravelPasswordHistoryCommand;
 
 class LaravelPasswordHistoryServiceProvider extends PackageServiceProvider
