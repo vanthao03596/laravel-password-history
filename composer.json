@@ -25,7 +25,8 @@
         "orchestra/testbench": "^4.8 || ^5.2 || ^6.0",
         "spatie/test-time": "^1.2",
         "vimeo/psalm": "^4.4",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.3",
+        "vanthao03596/laravel-package-tools": "^2.0"
     },
     "autoload": {
         "psr-4": {
