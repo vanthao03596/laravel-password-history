@@ -23,7 +23,6 @@
         "brianium/paratest": "^6.2",
         "laravel/legacy-factories": "^1.0.4",
         "orchestra/testbench": "^4.5|^5.0|^6.0",
-        "phpunit/phpunit": "^9.3",
         "spatie/test-time": "^1.2",
         "vimeo/psalm": "^4.4"
     },
