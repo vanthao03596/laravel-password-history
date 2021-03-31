@@ -47,11 +47,9 @@ class PasswordHistoryTest extends TestCase
     /** @test */
     public function history_is_not_being_recorded_if_new_password_used_before()
     {
-        $password = '111111';
+        $model = factory(TestModel::class)->create(['password' => 'same password']);
 
-        $model = factory(TestModel::class)->create(['password' => $password]);
-
-        $model->password = $password;
+        $model->password = 'same password';
 
         $model->save();
 
