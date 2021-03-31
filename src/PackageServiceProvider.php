@@ -15,7 +15,7 @@ abstract class PackageServiceProvider extends ServiceProvider
 
     abstract public function configurePackage(Package $package): void;
 
-    public function register()
+    public function register(): PackageServiceProvider
     {
         $this->registeringPackage();
 
@@ -38,7 +38,7 @@ abstract class PackageServiceProvider extends ServiceProvider
         return $this;
     }
 
-    public function boot()
+    public function boot(): PackageServiceProvider
     {
         $this->bootingPackage();
 
