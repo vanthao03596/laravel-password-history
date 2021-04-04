@@ -1,4 +1,4 @@
-# Keep a password history of your users to prevent them from reusing the same password like Facebook, Google
+# Laravel password history
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/vanthao03596/laravel-password-history.svg?style=flat-square)](https://packagist.org/packages/vanthao03596/laravel-password-history)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vanthao03596/laravel-password-history/run-tests?label=tests)](https://github.com/vanthao03596/laravel-password-history/actions?query=workflow%3ATests+branch%3Amaster)
@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/vanthao03596/laravel-password-history.svg?style=flat-square)](https://packagist.org/packages/vanthao03596/laravel-password-history)
 
 
-Keep a password history of your users to prevent them from reusing the same password, for security reasons like what google does.
+Keep a password history of your users to prevent them from reusing the same password, for security reasons like what Google, Apple does.
 
 
 ## Installation
