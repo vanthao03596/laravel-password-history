@@ -6,7 +6,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/vanthao03596/laravel-password-history.svg?style=flat-square)](https://packagist.org/packages/vanthao03596/laravel-password-history)
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Keep a password history of your users to prevent them from reusing the same password, for security reasons like what google does.
+
 
 ## Installation
 
@@ -32,14 +33,59 @@ This is the contents of the published config file:
 
 ```php
 return [
+    /**
+     * The table name to save your password histories.
+     */
+    'table_name' => 'password_histories',
+
+    /*
+     * The fully qualified class name of the password_histories model.
+     */
+    'password_history_model' => \Vanthao03596\LaravelPasswordHistory\Models\PasswordHistory::class,
+
+    /*
+     * The number of months you want to check against new password.
+     */
+
+     'months_to_check' => 12,
 ];
 ```
 
 ## Usage
 
+To make an Eloquent model store password histories just add the `\Vanthao03596\LaravelPasswordHistory\HasPasswordHistory` trait to it:
+
 ```php
-$laravel-password-history = new Vanthao03596\LaravelPasswordHistory();
-echo $laravel-password-history->echoPhrase('Hello, Vanthao03596!');
+use Illuminate\Database\Eloquent\Model;
+use Vanthao03596\LaravelPasswordHistory\HasPasswordHistory;
+
+class YourModel extends Model
+{
+    use HasPasswordHistory;
+    
+    ...
+}
+```
+
+## Validation Rules
+
+And there is a validation rule for you to check the entire password history agaist the new password in laravel validation rules.
+
+```php
+use Vanthao03596\LaravelPasswordHistory\Rules\NotInPasswordHistory;
+//...
+
+$rules = [
+    // ... 
+    'password' => [
+       'required',
+       'confirmed',
+       new NotInPasswordHistory(request()->user()),
+    ]
+    // ... 
+];
+
+$this->validate(...);
 ```
 
 ## Testing
