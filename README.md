@@ -88,6 +88,30 @@ $rules = [
 $this->validate(...);
 ```
 
+## Cleaning up the log
+
+After using the package for a while you might have recorded a lot of password history. This package provides an artisan command password-history:clean to clean the history.
+
+```bash
+php artisan password-history:clean
+```
+
+```php
+//app/Console/Kernel.php
+
+protected function schedule(Schedule $schedule)
+{
+   $schedule->command('password-history:clean')->daily();
+}
+```
+
+Overwrite the months to keep per call
+
+```bash
+php artisan password-history:clean --months=6
+```
+
+
 ## Testing
 
 ```bash
