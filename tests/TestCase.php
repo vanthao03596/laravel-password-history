@@ -3,10 +3,8 @@
 namespace Vanthao03596\LaravelPasswordHistory\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Vanthao03596\LaravelPasswordHistory\LaravelPasswordHistoryServiceProvider;
-use Vanthao03596\LaravelPasswordHistory\Tests\TestSupport\TestModels\TestModel;
 
 abstract class TestCase extends Orchestra
 {
@@ -49,6 +47,5 @@ abstract class TestCase extends Orchestra
             $table->string('name');
             $table->string('password');
         });
-
     }
 }

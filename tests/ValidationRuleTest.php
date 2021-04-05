@@ -18,7 +18,6 @@ class ValidationRuleTest extends TestCase
         $this->testModel = TestModel::create(['name' => 'test', 'password' => Hash::make('password')]);
 
         TestTime::freeze('Y-m-d H:i:s', '2021-01-01 00:00:01');
-
     }
 
     /** @test */
