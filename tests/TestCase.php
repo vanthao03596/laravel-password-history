@@ -10,8 +10,6 @@ use Vanthao03596\LaravelPasswordHistory\Tests\TestSupport\TestModels\TestModel;
 
 abstract class TestCase extends Orchestra
 {
-    protected $testModel;
-
     public function setUp(): void
     {
         parent::setUp();
@@ -19,8 +17,6 @@ abstract class TestCase extends Orchestra
         $this->setUpDatabase($this->app);
 
         $this->withFactories(__DIR__.'/factories');
-
-        $this->testModel = TestModel::first();
     }
 
     protected function getPackageProviders($app)
@@ -54,6 +50,5 @@ abstract class TestCase extends Orchestra
             $table->string('password');
         });
 
-        TestModel::create(['name' => 'test', 'password' => Hash::make('password')]);
     }
 }
