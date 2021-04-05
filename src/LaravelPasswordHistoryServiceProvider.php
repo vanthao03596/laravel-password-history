@@ -4,7 +4,7 @@ namespace Vanthao03596\LaravelPasswordHistory;
 
 use Vanthao03596\LaravelPackageTools\Package;
 use Vanthao03596\LaravelPackageTools\PackageServiceProvider;
-use Vanthao03596\LaravelPasswordHistory\Commands\LaravelPasswordHistoryCommand;
+use Vanthao03596\LaravelPasswordHistory\Commands\CleanPasswordHistoryCommand;
 
 class LaravelPasswordHistoryServiceProvider extends PackageServiceProvider
 {
@@ -15,6 +15,6 @@ class LaravelPasswordHistoryServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasMigration('create_laravel_password_histories_table')
             ->hasTranslations()
-            ->hasCommand(LaravelPasswordHistoryCommand::class);
+            ->hasCommand(CleanPasswordHistoryCommand::class);
     }
 }
